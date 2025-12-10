@@ -15,7 +15,7 @@ func _on_blood_changed(new_blood):
 	pass  # HUD handles display
 
 func _on_player_died():
-	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _on_player_won():
-	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
