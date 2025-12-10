@@ -15,8 +15,7 @@ func _physics_process(delta):
 	velocity = wander_dir * move_speed
 	move_and_slide()
 
-
-func _on_pig_body_entered(body: Node2D) -> void:
+func _on_npc_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		body.collect_blood(1)
 		queue_free()

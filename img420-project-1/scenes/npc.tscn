@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b53qgjgqgvc73"]
+
+[ext_resource type="Script" uid="uid://flncnghstcta" path="res://scripts/npc.gd" id="1_nh2m4"]
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_nh2m4")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="FeedArea" type="Area2D" parent="." groups=["pig"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeedArea"]
+
+[connection signal="body_entered" from="FeedArea" to="." method="_on_npc_body_entered"]
