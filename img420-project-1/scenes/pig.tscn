@@ -12,3 +12,5 @@ script = ExtResource("1_sq5kf")
 [node name="FeedArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FeedArea"]
+
+[connection signal="body_entered" from="FeedArea" to="." method="_on_pig_body_entered"]

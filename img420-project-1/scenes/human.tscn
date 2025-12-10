@@ -12,3 +12,5 @@ script = ExtResource("1_swaxu")
 [node name="DamageArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_human_body_entered"]
