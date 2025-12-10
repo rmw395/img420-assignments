@@ -4,6 +4,9 @@ extends CharacterBody2D
 var wander_dir = Vector2.ZERO
 var change_timer := 0.0
 
+@export var min_bounds := Vector2(0, 0)
+@export var max_bounds := Vector2(1920, 1080)
+
 func _process(delta):
 	change_timer -= delta
 	
@@ -14,6 +17,7 @@ func _process(delta):
 func _physics_process(delta):
 	velocity = wander_dir * move_speed
 	move_and_slide()
+	global_position = global_position.clamp(min_bounds, max_bounds)
 
 func _on_npc_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

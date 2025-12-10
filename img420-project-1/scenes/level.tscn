@@ -1,30 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvxjbr6i4moff"]
+[gd_scene load_steps=10 format=3 uid="uid://dvxjbr6i4moff"]
 
 [ext_resource type="Script" uid="uid://d2aimexa2lxec" path="res://scripts/game_manager.gd" id="1_2q6dc"]
+[ext_resource type="Script" uid="uid://bpfxedxs6murq" path="res://scripts/level.gd" id="1_8c41q"]
 [ext_resource type="Script" uid="uid://bcn8im0cj7k1f" path="res://scripts/npc_spawner.gd" id="2_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://uold4gf02ud5" path="res://scenes/player.tscn" id="2_w8frs"]
 [ext_resource type="Script" uid="uid://cfyjx75avd4s5" path="res://scripts/enemy_spawner.gd" id="3_2r41h"]
 [ext_resource type="PackedScene" uid="uid://b53qgjgqgvc73" path="res://scenes/npc.tscn" id="3_klq6b"]
 [ext_resource type="PackedScene" uid="uid://entfxjet7f33" path="res://scenes/hud.tscn" id="3_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://bmipxtwfgw4ce" path="res://scenes/enemy.tscn" id="5_b121j"]
-
-[sub_resource type="TileSet" id="TileSet_klq6b"]
+[ext_resource type="Texture2D" uid="uid://bglo738cmohrr" path="res://assets/stone_background.png" id="8_b121j"]
 
 [node name="Level" type="Node2D"]
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_klq6b")
-format = 2
+script = ExtResource("1_8c41q")
 
 [node name="Player" parent="." instance=ExtResource("2_w8frs")]
 
 [node name="NPCSpawner" type="Node2D" parent="."]
 script = ExtResource("2_ppgk2")
+npc_scene = ExtResource("3_klq6b")
 
 [node name="NPC" parent="NPCSpawner" instance=ExtResource("3_klq6b")]
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("3_2r41h")
+enemy_scene = ExtResource("5_b121j")
 
 [node name="Enemy" parent="EnemySpawner" instance=ExtResource("5_b121j")]
 
@@ -32,3 +31,8 @@ script = ExtResource("3_2r41h")
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_2q6dc")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(579.25, 323.5)
+scale = Vector2(1.63258, 1.80833)
+texture = ExtResource("8_b121j")

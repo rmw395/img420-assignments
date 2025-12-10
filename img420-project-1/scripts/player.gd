@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var max_health := 100
 @export var max_blood := 3
 
+@export var min_bounds := Vector2(0, 0)
+@export var max_bounds := Vector2(1920, 1080)
+
 var health := max_health
 var blood_level := 0
 
@@ -13,13 +16,14 @@ signal player_died
 signal player_won
 
 func _physics_process(delta):
-	var input_vector = Vector2(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	).normalized()
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	velocity = input_vector.normalized() * 200
 
-	velocity = input_vector * move_speed
 	move_and_slide()
+
+	global_position = global_position.clamp(min_bounds, max_bounds)
 
 func take_damage(amount: int):
 	health -= amount
