@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvxjbr6i4moff"]
+
+[ext_resource type="Script" uid="uid://d2aimexa2lxec" path="res://scripts/game_manager.gd" id="1_2q6dc"]
+
+[node name="Level" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_2q6dc")
