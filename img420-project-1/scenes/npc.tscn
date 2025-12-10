@@ -1,16 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://b53qgjgqgvc73"]
+[gd_scene load_steps=5 format=3 uid="uid://b53qgjgqgvc73"]
 
 [ext_resource type="Script" uid="uid://flncnghstcta" path="res://scripts/npc.gd" id="1_nh2m4"]
+[ext_resource type="Texture2D" uid="uid://dgqdd7ttm1dw0" path="res://assets/pig.png" id="2_abqhh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abqhh"]
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rv78h"]
+size = Vector2(30, 30)
 
 [node name="NPC" type="CharacterBody2D"]
 script = ExtResource("1_nh2m4")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_abqhh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_abqhh")
 
-[node name="FeedArea" type="Area2D" parent="." groups=["pig"]]
+[node name="FeedArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FeedArea"]
+shape = SubResource("RectangleShape2D_rv78h")
 
 [connection signal="body_entered" from="FeedArea" to="." method="_on_npc_body_entered"]

@@ -1,16 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://uold4gf02ud5"]
+[gd_scene load_steps=8 format=3 uid="uid://uold4gf02ud5"]
+
+[ext_resource type="Texture2D" uid="uid://de8ywpyap3e03" path="res://assets/vampire.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://u2j4jfpweapd" path="res://assets/vampire2.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://gojtyikvpplv" path="res://assets/vampire3.png" id="3_dqkch"]
 
 [sub_resource type="GDScript" id="GDScript_u8vuu"]
 script/source = "extends CharacterBody2D
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlg0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3vyb7")
+}],
+"loop": true,
+"name": &"level1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qhqgy")
+}],
+"loop": true,
+"name": &"level2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dqkch")
+}],
+"loop": true,
+"name": &"level3",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = SubResource("GDScript_u8vuu")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qhqgy")
 
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_dqkch")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_qlg0r")
+animation = &"level3"
