@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var max_blood := 3
 
 @export var min_bounds := Vector2(0, 0)
-@export var max_bounds := Vector2(1920, 1080)
+@export var max_bounds := Vector2(1152, 648)
 
 var health := max_health
 var blood_level := 0

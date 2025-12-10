@@ -21,6 +21,8 @@ shape = SubResource("RectangleShape2D_abqhh")
 [node name="FeedArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FeedArea"]
+visibility_layer = 2
 shape = SubResource("RectangleShape2D_rv78h")
+debug_color = Color(0.893438, 0.000223327, 0.784219, 0.42)
 
 [connection signal="body_entered" from="FeedArea" to="." method="_on_npc_body_entered"]

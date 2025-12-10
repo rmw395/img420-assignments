@@ -19,7 +19,6 @@ scale = Vector2(1.63258, 1.80833)
 texture = ExtResource("8_b121j")
 
 [node name="Player" parent="." instance=ExtResource("2_w8frs")]
-position = Vector2(500, 300)
 
 [node name="NPCSpawner" type="Node2D" parent="."]
 script = ExtResource("2_ppgk2")
@@ -29,6 +28,10 @@ npc_scene = ExtResource("3_klq6b")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("3_2r41h")
+enemy_scene = ExtResource("5_b121j")
+spawn_count = null
+spawn_area_size = null
+respawn_delay = null
 
 [node name="Enemy" parent="EnemySpawner" instance=ExtResource("5_b121j")]
 

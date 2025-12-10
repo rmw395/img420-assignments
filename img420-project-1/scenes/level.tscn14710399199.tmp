@@ -19,7 +19,6 @@ scale = Vector2(1.63258, 1.80833)
 texture = ExtResource("8_b121j")
 
 [node name="Player" parent="." instance=ExtResource("2_w8frs")]
-position = Vector2(500, 300)
 
 [node name="NPCSpawner" type="Node2D" parent="."]
 script = ExtResource("2_ppgk2")

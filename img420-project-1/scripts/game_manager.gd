@@ -18,4 +18,6 @@ func _on_player_died():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _on_player_won():
+	var player = get_tree().get_first_node_in_group("player")
+	player.call_deferred("queue_free")
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

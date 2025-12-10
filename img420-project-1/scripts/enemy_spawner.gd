@@ -1,33 +1,39 @@
 extends Node2D
 
-@export var enemy_scene: PackedScene
+@export var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
 @export var spawn_count := 3
 @export var spawn_area_size := Vector2(2000, 2000)
 
+# Track current enemies
+var enemies: Array = []
+
 func _ready():
-	spawn_enemies()
-
-func spawn_enemies():
 	for i in range(spawn_count):
-		spawn_single_enemy()
+		spawn_enemy()
 
-func spawn_single_enemy():
+func spawn_enemy():
+	if enemy_scene == null:
+		push_error("enemy_scene not assigned!")
+		return
+
 	var enemy = enemy_scene.instantiate()
-	add_child(enemy)
-
 	enemy.global_position = Vector2(
 		randf_range(global_position.x - spawn_area_size.x/2,
 					global_position.x + spawn_area_size.x/2),
 		randf_range(global_position.y - spawn_area_size.y/2,
 					global_position.y + spawn_area_size.y/2)
 	)
+	
+	# Assign level bounds
+	enemy.min_bounds = Vector2.ZERO
+	enemy.max_bounds = spawn_area_size
 
-@export var respawn_delay := 10.0 # seconds
+	# Connect the enemy signal for respawn
+	enemy.connect("enemy_hit_player", Callable(self, "_on_enemy_hit_player"))
+	
+	add_child(enemy)
+	enemies.append(enemy)
 
-func _process(delta):
-	if get_child_count() < spawn_count:
-		if not is_processing():
-			set_process(true)
-			await get_tree().create_timer(respawn_delay).timeout
-			spawn_single_enemy()
-			set_process(false)
+func _on_enemy_hit_player(enemy):
+	enemies.erase(enemy)
+	spawn_enemy()

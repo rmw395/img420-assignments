@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://uold4gf02ud5"]
+[gd_scene load_steps=7 format=3 uid="uid://uold4gf02ud5"]
 
 [ext_resource type="Texture2D" uid="uid://de8ywpyap3e03" path="res://assets/vampire.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bex0odwkgnyf5" path="res://scripts/player.gd" id="1_dqkch"]
@@ -6,9 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://gojtyikvpplv" path="res://assets/vampire3.png" id="3_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
 size = Vector2(32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qlg0r"]
@@ -45,12 +42,9 @@ script = ExtResource("1_dqkch")
 texture = ExtResource("2_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 6
 shape = SubResource("RectangleShape2D_qhqgy")
-
-[node name="HurtBox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("RectangleShape2D_dqkch")
+debug_color = Color(0.979222, 0.143719, 1.34766e-06, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
