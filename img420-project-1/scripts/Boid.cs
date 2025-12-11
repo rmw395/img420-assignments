@@ -9,8 +9,8 @@ public partial class Boid : Node2D
 	public override void _Ready()
 	{
 		Velocity = new Vector2(
-			GD.RandRange(-1f, 1f),
-			GD.RandRange(-1f, 1f)
+			GD.RandRange(-1, 1),
+			GD.RandRange(-1, 1)
 		).Normalized() * Speed;
 	}
 

@@ -30,8 +30,8 @@ public partial class FlockController : Node2D
 		Boid boid = BoidScene.Instantiate<Boid>();
 
 		boid.GlobalPosition = new Vector2(
-			GD.RandRange(0, ScreenSize.X),
-			GD.RandRange(0, ScreenSize.Y)
+			(float)GD.RandRange(0, ScreenSize.X),
+			(float)GD.RandRange(0, ScreenSize.Y)
 		);
 
 		AddChild(boid);
