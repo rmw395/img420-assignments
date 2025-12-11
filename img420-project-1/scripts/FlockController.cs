@@ -19,9 +19,12 @@ public partial class FlockController : Node2D
 
 	public override void _Ready()
 	{
+		ScreenSize = GetViewportRect().Size;
+
 		for (int i = 0; i < BoidCount; i++)
 			SpawnBoid();
 	}
+
 
 	private void SpawnBoid()
 	{

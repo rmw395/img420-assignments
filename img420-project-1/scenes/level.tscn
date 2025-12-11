@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvxjbr6i4moff"]
+[gd_scene load_steps=12 format=3 uid="uid://dvxjbr6i4moff"]
 
 [ext_resource type="Script" uid="uid://dbgh84ofotoa1" path="res://scripts/Level.cs" id="1_8c41q"]
 [ext_resource type="PackedScene" uid="uid://uold4gf02ud5" path="res://scenes/player.tscn" id="2_w8frs"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://cexieovdq83qn" path="res://scripts/EnemySpawner.cs" id="6_t1rx8"]
 [ext_resource type="Texture2D" uid="uid://bglo738cmohrr" path="res://assets/stone_background.png" id="8_b121j"]
 [ext_resource type="Script" uid="uid://vb76fkbrrsgi" path="res://scripts/GameManager.cs" id="9_8iemx"]
+[ext_resource type="PackedScene" uid="uid://dgwggicg6r713" path="res://scenes/flock_controller.tscn" id="10_t1rx8"]
+[ext_resource type="PackedScene" uid="uid://tkwyd65brhjh" path="res://scenes/boid.tscn" id="11_8iemx"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8c41q")
@@ -19,6 +21,10 @@ scale = Vector2(1.63258, 1.80833)
 texture = ExtResource("8_b121j")
 
 [node name="Node2D" type="Node2D" parent="Background"]
+
+[node name="FlockController" parent="." instance=ExtResource("10_t1rx8")]
+position = Vector2(-6.10352e-05, 0)
+BoidScene = ExtResource("11_8iemx")
 
 [node name="Player" parent="." instance=ExtResource("2_w8frs")]
 position = Vector2(500, 300)
