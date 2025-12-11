@@ -84,6 +84,9 @@ public partial class FlockController : Node2D
 	{
 		Vector2 pos = boid.GlobalPosition;
 
-		if (pos.X < 0) pos.X = ScreenSize;
+		if (pos.X < 0) pos.X = ScreenSize.X;
+		if (pos.X > ScreenSize.X) pos.X = 0;
+		if (pos.Y < 0) pos.Y = ScreenSize.Y;
+		if (pos.Y > ScreenSize.Y) pos.Y = 0;
 	}
 }
