@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bmipxtwfgw4ce"]
 
-[ext_resource type="Script" uid="uid://dyisx8sqby7wv" path="res://scripts/enemy.gd" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://bsgqq1gyabijk" path="res://scripts/Enemy.cs" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://bcp3o06hf7yp5" path="res://assets/human.png" id="2_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
@@ -11,7 +11,7 @@ size = Vector2(32, 32)
 
 [node name="Enemy" type="CharacterBody2D"]
 visibility_layer = 4
-script = ExtResource("1_7p1mj")
+script = ExtResource("1_md0e3")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_md0e3")
