@@ -1,18 +1,53 @@
-extends CanvasLayer
+using Godot;
+using System;
 
-var player
+public partial class HUD : CanvasLayer
+{
+	private Node player;
 
-func _ready():
-	player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.health_changed.connect(_update_health)
-		player.blood_changed.connect(_update_blood)
+	// Node references
+	private Label HealthLabel;
+	private Label BloodLabel;
 
-		_update_health(player.health)
-		_update_blood(player.blood_level)
+	public override void _Ready()
+	{
+		// Get labels
+		HealthLabel = GetNode<Label>("VBoxContainer/HealthLabel");
+		BloodLabel = GetNode<Label>("VBoxContainer/BloodLabel");
 
-func _update_health(val):
-	$VBoxContainer/HealthLabel.text = "Health: %s" % str(val)
+		// Find the first node in the "player" group
+		player = GetTree().GetFirstNodeInGroup("player");
 
-func _update_blood(val):
-	$VBoxContainer/BloodLabel.text = "Blood: %s / 3" % str(val)
+		if (player != null)
+		{
+			// Connect signals
+			player.Connect("health_changed", Callable.From(this, nameof(UpdateHealth)));
+			player.Connect("blood_changed", Callable.From(this, nameof(UpdateBlood)));
+
+			// Initialize HUD
+			var healthProp = player.Get("health");
+			var bloodProp = player.Get("blood_level");
+
+			if (healthProp is int health)
+				UpdateHealth(health);
+			if (bloodProp is int blood)
+				UpdateBlood(blood);
+		}
+		else
+		{
+			GD.PrintErr("Player node not found in scene!");
+		}
+	}
+
+	private void UpdateHealth(int val)
+	{
+		if (HealthLabel != null)
+			HealthLabel.Text = $"Health: {val}";
+	}
+
+	private void UpdateBlood(int val)
+	{
+		if (BloodLabel != null)
+			BloodLabel.Text = $"Blood: {val} / 3";
+	}
+}
