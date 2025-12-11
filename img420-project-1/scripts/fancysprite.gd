@@ -25,11 +25,11 @@ func _process(delta):
 	var pulse = 1.0 + pulse_amplitude * sin(_pulse_timer * PI * 2)
 	scale = _original_scale * pulse
 
-	# Emit signal at pulse peak (pretending DLL would do this)
+	# Emit signal at pulse peak
 	if abs(pulse - (1.0 + pulse_amplitude)) < 0.01:
 		emit_signal("pulse_peak")
 
-# --- Method called externally (pretending called from other Godot nodes) ---
+# --- Method called externally ---
 func boost_pulse(amount: float):
 	pulse_amplitude += amount
 	emit_signal("boosted")

@@ -28,7 +28,7 @@ npc_scene = ExtResource("3_klq6b")
 
 [node name="NPC" parent="NPCSpawner" instance=ExtResource("3_klq6b")]
 
-[node name="Sprite2D" type="Sprite2D" parent="NPCSpawner/NPC"]
+[node name="FancySprite" type="Sprite2D" parent="NPCSpawner/NPC" groups=["fancy"]]
 script = ExtResource("6_olg7q")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
@@ -40,3 +40,5 @@ script = ExtResource("3_2r41h")
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_2q6dc")
+
+[connection signal="pulse_peak" from="NPCSpawner/NPC/FancySprite" to="GameManager" method="_on_fancy_sprite_pulse_peak"]

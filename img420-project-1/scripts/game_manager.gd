@@ -4,11 +4,14 @@ var player: Node = null
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
+	var fancy = get_tree().get_first_node_in_group("fancy")
 	
 	player.health_changed.connect(_on_health_changed)
 	player.blood_changed.connect(_on_blood_changed)
 	player.player_died.connect(_on_player_died)
 	player.player_won.connect(_on_player_won)
+	
+	player.blood_changed.connect(fancy.boost_pulse)
 
 func _on_health_changed(new_health):
 	pass  # HUD handles display
@@ -34,3 +37,7 @@ func _on_player_won():
 	$WinLabel.visible = true
 	player.call_deferred("queue_free")
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func _on_fancy_sprite_pulse_peak() -> void:
+	print("Pulse peak reached! (FancySprite signal)")

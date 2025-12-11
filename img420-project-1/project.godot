@@ -24,6 +24,7 @@ project/assembly_name="img420-project-1"
 player=""
 enemy=""
 npc=""
+fancy=""
 
 [input]
 
