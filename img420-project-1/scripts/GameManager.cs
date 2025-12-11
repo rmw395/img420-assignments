@@ -13,10 +13,10 @@ public partial class GameManager : Node
 		if (player != null)
 		{
 			// Connect signals
-			player.Connect("health_changed", Callable.From(this, nameof(OnHealthChanged)));
-			player.Connect("blood_changed", Callable.From(this, nameof(OnBloodChanged)));
-			player.Connect("player_died", Callable.From(this, nameof(OnPlayerDied)));
-			player.Connect("player_won", Callable.From(this, nameof(OnPlayerWon)));
+			player.Connect("HealthChanged", new Callable(this, nameof(OnHealthChanged)));
+			player.Connect("BloodChanged", new Callable(this, nameof(OnBloodChanged)));
+			player.Connect("PlayerDied", new Callable(this, nameof(OnPlayerDied)));
+			player.Connect("PlayerWon", new Callable(this, nameof(OnPlayerWon)));
 		}
 		else
 		{
@@ -32,11 +32,14 @@ public partial class GameManager : Node
 		var healthProp = player.Get("health");
 		var bloodProp = player.Get("blood_level");
 
-		if (healthProp is int health && health <= 0)
+		int health = healthProp.AsInt32();
+		int blood = bloodProp.AsInt32();
+
+		if (health <= 0)
 		{
 			OnPlayerDied();
 		}
-		else if (bloodProp is int blood && blood >= 3)
+		else if (blood >= 3)
 		{
 			OnPlayerWon();
 		}

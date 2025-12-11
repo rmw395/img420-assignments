@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class NPC : CharacterBody2D
+public partial class Npc : CharacterBody2D
 {
 	[Export]
 	public float MoveSpeed { get; set; } = 100f;
@@ -48,7 +48,7 @@ public partial class NPC : CharacterBody2D
 		if (GlobalPosition.Y <= MinBounds.Y || GlobalPosition.Y >= MaxBounds.Y)
 			wanderDir.Y = -wanderDir.Y;
 
-		GlobalPosition = GlobalPosition.Clamped(MinBounds, MaxBounds);
+		GlobalPosition = GlobalPosition.Clamp(MinBounds, MaxBounds);
 	}
 
 	private void OnBodyEntered(Node body)

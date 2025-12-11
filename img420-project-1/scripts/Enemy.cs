@@ -46,7 +46,7 @@ public partial class Enemy : CharacterBody2D
 		}
 
 		// Clamp to level bounds
-		GlobalPosition = GlobalPosition.Clamped(MinBounds, MaxBounds);
+		GlobalPosition = GlobalPosition.Clamp(MinBounds, MaxBounds);
 	}
 
 	private void OnBodyEntered(Node body)

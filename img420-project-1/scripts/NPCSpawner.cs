@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public partial class NPCSpawner : Node2D
 {
 	[Export]
-	public PackedScene NPCScene { get; set; }
+	public PackedScene NPCScene { get; set; } = GD.Load<PackedScene>("res://scenes/npc.tscn");
 
 	[Export]
 	public int SpawnCount { get; set; } = 5;
@@ -13,7 +13,7 @@ public partial class NPCSpawner : Node2D
 	[Export]
 	public Vector2 SpawnAreaSize { get; set; } = new Vector2(2000, 2000);
 
-	private List<NPC> npcs = new List<NPC>();
+	private List<Npc> npcs = new List<Npc>();
 	private RandomNumberGenerator rng = new RandomNumberGenerator();
 
 	public override void _Ready()
@@ -38,7 +38,7 @@ public partial class NPCSpawner : Node2D
 			return;
 		}
 
-		NPC npc = NPCScene.Instantiate<NPC>();
+		Npc npc = NPCScene.Instantiate<Npc>();
 
 		// Random position inside spawn area
 		npc.GlobalPosition = new Vector2(
@@ -60,7 +60,7 @@ public partial class NPCSpawner : Node2D
 		npcs.Add(npc);
 	}
 
-	private void OnNPCCollected(NPC npc)
+	private void OnNPCCollected(Npc npc)
 	{
 		if (npcs.Contains(npc))
 		{

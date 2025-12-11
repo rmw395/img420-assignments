@@ -49,7 +49,7 @@ public partial class EnemySpawner : Node2D
 		enemy.MaxBounds = SpawnAreaSize;
 
 		// Connect signal
-		enemy.Connect(Enemy.SignalName.EnemyHitPlayer, Callable.From(this, nameof(OnEnemyHitPlayer)));
+		enemy.Connect(Enemy.SignalName.EnemyHitPlayer, new Callable(this, nameof(OnEnemyHitPlayer)));
 
 		AddChild(enemy);
 		enemies.Add(enemy);

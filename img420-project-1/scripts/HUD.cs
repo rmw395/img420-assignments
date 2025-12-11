@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class HUD : CanvasLayer
+public partial class Hud : CanvasLayer
 {
 	private Node player;
 
@@ -21,17 +21,18 @@ public partial class HUD : CanvasLayer
 		if (player != null)
 		{
 			// Connect signals
-			player.Connect("health_changed", Callable.From(this, nameof(UpdateHealth)));
-			player.Connect("blood_changed", Callable.From(this, nameof(UpdateBlood)));
+			player.Connect("HealthChanged", new Callable(this, nameof(UpdateHealth)));
+			player.Connect("BloodChanged", new Callable(this, nameof(UpdateBlood)));
 
 			// Initialize HUD
 			var healthProp = player.Get("health");
 			var bloodProp = player.Get("blood_level");
 
-			if (healthProp is int health)
-				UpdateHealth(health);
-			if (bloodProp is int blood)
-				UpdateBlood(blood);
+			if (healthProp.VariantType == Variant.Type.Int)
+				UpdateHealth(healthProp.AsInt32());
+
+			if (bloodProp.VariantType == Variant.Type.Int)
+				UpdateBlood(bloodProp.AsInt32());
 		}
 		else
 		{
