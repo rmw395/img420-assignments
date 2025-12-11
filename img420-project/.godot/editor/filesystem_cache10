@@ -1,0 +1,14 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1765426522
+icon.svg::CompressedTexture2D/CompressedTexture2D::1785560507823349634::1765426310::1765426338::1::::<><><>0<>0<>d2f567988e888014d0bb345f0f58882e<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://assets/::1765426522
+human.png::CompressedTexture2D/CompressedTexture2D::8878592037516861396::1765426310::1765426515::1::::<><><>0<>0<>965a9b0f0ef6e445e854a38d019a4a5b<>res://.godot/imported/human.png-95152b2acec5ae4ede7e9f51a46fa951.ctex::
+pig.png::CompressedTexture2D/CompressedTexture2D::8484402273047382332::1765426310::1765426517::1::::<><><>0<>0<>815321b460ab0112468fc30508ab9293<>res://.godot/imported/pig.png-e6d52c5f224ea8c92012706ef65951af.ctex::
+vampire-3.png::CompressedTexture2D/CompressedTexture2D::6163898881902699891::1765426310::1765426520::1::::<><><>0<>0<>79d1b8a76c3375de815c07e99b694225<>res://.godot/imported/vampire-3.png-2c916036caab03232e8e573c3c56ec3c.ctex::
+vampire.png::CompressedTexture2D::8728078129196006548::1765426310::1765426522::1::::<><><>0<>0<>b62af096b2dafd1043a178cb67127f48<>res://.godot/imported/vampire.png-75e317b00769805c9f848712e0d0cc88.ctex::
+::res://scenes/::1765426522
+mob.tscn::PackedScene/PackedScene::6414379638584829896::1765426515::0::1::::<><><>0<>0<><>::uid://dyq4d4ob3pu2w::::res://assets/human.png<>uid://bki22yg12x2u8::::res://scripts/Mob.cs
+player.tscn::PackedScene::4459401636788389080::1765426522::0::1::::<><><>0<>0<><>::uid://dwl7f3ms3orc3::::res://assets/vampire.png<>uid://bn0s2pou2ss7a::::res://scripts/Player.cs
+::res://scripts/::1765426490
+Mob.cs::CSharpScript/CSharpScript::3106512988393597789::1765426310::0::1::::<><><>0<>0<><>::
+Player.cs::CSharpScript/CSharpScript::3351627027567277896::1765426310::0::1::::<><><>0<>0<><>::
