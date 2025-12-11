@@ -1,0 +1,14 @@
+Sprite2D
+Label
+VBoxContainer
+StaticBody2D
+Node2D
+AnimatedSprite2D
+Node
+MarginContainer
+Button
+Panel
+Control
+CanvasLayer
+CollisionShape2D
+Area2D
