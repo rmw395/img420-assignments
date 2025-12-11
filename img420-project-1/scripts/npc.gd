@@ -4,6 +4,10 @@ extends CharacterBody2D
 var wander_dir = Vector2.ZERO
 var change_timer := 0.0
 
+@export var rotation_speed = 30.0
+@export var pulse_speed = 2.0
+@export var pulse_amplitude = 0.2
+
 @export var min_bounds := Vector2(0, 0)
 @export var max_bounds := Vector2(1152, 648)
 
@@ -12,6 +16,8 @@ func _ready():
 	wander_dir = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
 
 func _process(delta):
+	set_rotation_degrees(get_rotation_degrees() + rotation_speed * delta);
+
 	change_timer -= delta
 	
 	if change_timer <= 0:

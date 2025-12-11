@@ -1,0 +1,7 @@
+{
+  "entry_symbol": "fancysprite_library_init",
+  "library": {
+    "windows.x86_64": "res://bin/fancysprite.dll"
+  },
+  "dependencies": []
+}

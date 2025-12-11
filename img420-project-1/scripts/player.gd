@@ -35,6 +35,8 @@ func take_damage(amount: int):
 func collect_blood(amount: int = 1):
 	blood_level += amount
 	emit_signal("blood_changed", blood_level)
+	
+	$Sprite2D.boost_pulse(0.1)
 
 	if blood_level >= max_blood:
 		emit_signal("player_won")

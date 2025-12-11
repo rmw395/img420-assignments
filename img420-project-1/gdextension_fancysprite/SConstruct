@@ -1,0 +1,23 @@
+import os
+from SCons.Script import Environment, Glob
+
+# Build environment
+env = Environment()
+
+# Path to your godot-cpp folder
+GODOT_CPP_PATH = r"C:\Users\risam\godot-cpp"
+
+# Include paths for compiler
+env.Append(CPPPATH=[
+    os.path.join(GODOT_CPP_PATH, "include", "godot_cpp"),         # top-level include
+    os.path.join(GODOT_CPP_PATH, "gen", "include", "godot_cpp")  # classes, core, variant
+])
+
+# Optional: MSVC flags
+env.Append(CPPFLAGS=['/EHsc'])
+
+# Source files
+sources = Glob('src/*.cpp')
+
+# Output DLL
+env.SharedLibrary(target='../bin/fancysprite', source=sources)
