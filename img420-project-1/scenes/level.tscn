@@ -18,6 +18,8 @@ position = Vector2(579.25, 323.5)
 scale = Vector2(1.63258, 1.80833)
 texture = ExtResource("8_b121j")
 
+[node name="Node2D" type="Node2D" parent="Background"]
+
 [node name="Player" parent="." instance=ExtResource("2_w8frs")]
 position = Vector2(500, 300)
 
